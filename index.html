@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umesh Joshi | Battery Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #3498db;
+            --accent: #2ecc71;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex; justify-content: flex-end; align-items: center;
+            padding: 20px 50px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--primary);
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .lang-toggle {
+            background: var(--primary);
+            border: none; color: white;
+            padding: 5px 12px; border-radius: 4px;
+            cursor: pointer; font-weight: bold;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--primary);
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        .ev-animation {
+            width: 100%; max-width: 600px;
+            margin: 0 auto 20px;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .hero-text h1 { font-size: 4rem; margin-bottom: 10px; }
+        .hero-text p { font-size: 1.5rem; color: var(--primary); margin-bottom: 30px; }
+        
+        .cv-download {
+            display: inline-block;
+            padding: 15px 35px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        .cv-download:hover { background: var(--primary); box-shadow: 0 0 20px rgba(52, 152, 219, 0.5); }
+
+        /* --- ABOUT SECTION --- */
+        .about-container { display: flex; gap: 50px; align-items: center; }
+        .avatar {
+            width: 350px; height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        /* --- EXPERIENCE CARDS (FLIP) --- */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 100%; height: 450px;
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 30px;
+            display: flex; flex-direction: column;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .flip-card-back { transform: rotateY(180deg); background: #161e2b; }
+
+        .role-title { color: var(--primary); font-size: 1.4rem; margin-bottom: 5px; }
+        .duration { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px; }
+        .task-list { list-style: none; flex-grow: 1; }
+        .task-list li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .task-list li::before { content: "▹"; position: absolute; left: 0; color: var(--primary); }
+        
+        .learn-more { align-self: flex-end; color: var(--primary); font-weight: bold; font-size: 0.8rem; }
+
+        .skills-developed {
+            margin-top: 20px;
+            display: flex; flex-wrap: wrap; gap: 8px;
+            opacity: 0; transition: opacity 1s 0.3s;
+        }
+        .flip-card.flipped .skills-developed { opacity: 1; }
+        .skill-tag {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; border: 1px solid var(--primary);
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-category { margin-bottom: 40px; }
+        .skills-category h3 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; }
+        .skills-flex { display: flex; flex-wrap: wrap; gap: 15px; }
+        .skill-item {
+            background: var(--bg-card); padding: 10px 20px; border-radius: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* --- CONTACT --- */
+        .contact-container { display: flex; gap: 50px; align-items: center; }
+        .contact-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
+        .contact-btn {
+            padding: 15px; background: var(--bg-card); border: 1px solid var(--primary);
+            color: white; text-align: center; text-decoration: none; border-radius: 10px;
+            font-weight: bold; transition: var(--transition);
+        }
+        .contact-btn:hover { background: var(--primary); transform: translateY(-5px); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .about-container, .contact-container { flex-direction: column; text-align: center; }
+            .nav-links { display: none; }
+            .hero-text h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="#hero" data-en="Home" data-de="Start">Home</a>
+            <a href="#about" data-en="About" data-de="Über mich">About</a>
+            <a href="#experience" data-en="Experience" data-de="Erfahrung">Experience</a>
+            <a href="#education" data-en="Education" data-de="Bildung">Education</a>
+            <a href="#skills" data-en="Skills" data-de="Fähigkeiten">Skills</a>
+            <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+            <button class="lang-toggle" onclick="toggleLanguage()">DE / EN</button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="ev-animation">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 50 Q20 30 60 25 L140 25 Q180 30 180 50 L180 65 L20 65 Z" fill="none" stroke="#3498db" stroke-width="2"/>
+                <circle cx="50" cy="65" r="10" fill="#0f172a" stroke="#3498db" stroke-width="2"/>
+                <circle cx="150" cy="65" r="10" fill="#0f172a" stroke="#3498db" stroke-width="2"/>
+                <path d="M100 25 L100 10 L120 10" fill="none" stroke="#2ecc71" stroke-width="2" />
+            </svg>
+        </div>
+        <div class="hero-text">
+            <h1 data-en="Welcome to Umesh Joshi's Portfolio" data-de="Willkommen in Umesh Joshis Portfolio">Welcome to Umesh Joshi's Portfolio</h1>
+            <p data-en="Battery Development & Algorithm Engineer" data-de="Ingenieur für Batterieentwicklung & Algorithmen">Battery Development & Algorithm Engineer</p>
+            <a href="UmeshJ_Lebenslauf_.pdf" download class="cv-download" data-en="Download CV" data-de="Lebenslauf Herunterladen">Download CV</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title" data-en="About Me" data-de="Über mich">About Me</h2>
+        <div class="about-container">
+            <img src="avatar.jpg" alt="Umesh Joshi" class="avatar">
+            <div class="about-text">
+                <p id="about-para">
+                    </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title" data-en="Professional Experience" data-de="Berufserfahrung">Professional Experience</h2>
+        <div class="experience-grid" id="exp-grid">
+            </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title" data-en="Technical Skills" data-de="Technische Fähigkeiten">Technical Skills</h2>
+        <div id="skills-container">
+            </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title" data-en="Let's Connect" data-de="Kontakt">Let's Connect</h2>
+        <div class="contact-container">
+            <img src="avatar2.jpg" alt="Umesh Joshi" class="avatar" style="border-radius: 50%;">
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-btn">Email</a>
+                <a href="https://linkedin.com/in/umesh-joshi" target="_blank" class="contact-btn">LinkedIn</a>
+                <a href="#" class="contact-btn">XING</a>
+                <a href="#" class="contact-btn">Stepstone</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentLang = 'en';
+
+        const content = {
+            en: {
+                about: "Driven by the future of sustainable mobility, I specialize in the bridge between electrochemical battery behavior and intelligent algorithms. With experience at Mercedes-Benz AG and a Master's in Renewable Energies, my goal is to optimize State-of-Charge (SOC) estimation and battery longevity using Machine Learning and predictive modeling. I thrive in challenging environments where precision meets innovation.",
+                experiences: [
+                    {
+                        title: "Werkstudent – Battery Algorithm & Concepts",
+                        company: "Mercedes-Benz AG",
+                        date: "08.2025 - Ongoing",
+                        tasks: ["Fundamental research to extend voltage relaxation models.", "Creating anomaly datasets for ML model training."],
+                        deepTasks: ["Extending supervised Machine Learning frameworks for predictive analysis.", "Developing structured data catalogs based on experimental measurement data.", "Collaborating with cross-functional teams for algorithm validation."],
+                        skills: ["Python", "Machine Learning", "Data Analysis", "Battery Modeling"]
+                    },
+                    {
+                        title: "Master Thesis: Voltage Relaxation Modeling",
+                        company: "Mercedes-Benz AG",
+                        date: "12.2024 - 07.2025",
+                        tasks: ["Developed LIB relaxation models in Python.", "Improved SOC estimation accuracy by 85%."],
+                        deepTasks: ["In-depth research on electrochemical relaxation behavior.", "Implementation of adaptive optimization algorithms.", "Applied gradient-based CyIPOPT methods.", "Validated models against experimental test bench data."],
+                        skills: ["Python", "CyIPOPT", "Optimization", "Electrochemistry"]
+                    }
+                ],
+                skills: {
+                    "Engineering & Simulation": ["MATLAB/Simulink", "CST Studio Suite", "Impedance Spectroscopy", "Vector Analysis"],
+                    "Programming & Analytics": ["Python (Pandas, NumPy)", "Machine Learning", "C++", "GitHub Copilot"],
+                    "Automotive Protocols": ["CAN/CANoe", "CANalyzer", "PREEvision", "AUTOSAR"]
+                }
+            },
+            de: {
+                about: "Angetrieben von der Zukunft der nachhaltigen Mobilität spezialisiere ich mich auf die Brücke zwischen elektrochemischem Batterieverhalten und intelligenten Algorithmen. Mit Erfahrung bei der Mercedes-Benz AG und einem Master in Erneuerbaren Energien ist es mein Ziel, die Schätzung des Ladezustands (SOC) und die Langlebigkeit von Batterien mithilfe von maschinellem Lernen und prädiktiver Modellierung zu optimieren.",
+                experiences: [
+                    {
+                        title: "Werkstudent – Batteriealgorithmen & Konzepte",
+                        company: "Mercedes-Benz AG",
+                        date: "08.2025 - Heute",
+                        tasks: ["Grundlagenforschung zur Erweiterung von Spannungsrelaxationsmodellen.", "Erstellung von Anomalie-Datensätzen für ML."],
+                        deepTasks: ["Erweiterung von Machine-Learning-Frameworks für prädiktive Analysen.", "Aufbau strukturierter Datenkataloge aus Messdaten.", "Zusammenarbeit mit funktionsübergreifenden Teams zur Validierung."],
+                        skills: ["Python", "Machine Learning", "Datenanalyse", "Batteriemodellierung"]
+                    },
+                    {
+                        title: "Masterarbeit: Modellierung der Spannungsrelaxation",
+                        company: "Mercedes-Benz AG",
+                        date: "12.2024 - 07.2025",
+                        tasks: ["Entwicklung von LIB-Relaxationsmodellen in Python.", "Verbesserung der SOC-Schätzgenauigkeit um 85%."],
+                        deepTasks: ["Vertiefte Forschung zum elektrochemischen Relaxationsverhalten.", "Implementierung adaptiver Optimierungsalgorithmen.", "Anwendung gradientenbasierter CyIPOPT-Methoden.", "Modellvalidierung an Versuchsstanddaten."],
+                        skills: ["Python", "CyIPOPT", "Optimierung", "Elektrochemie"]
+                    }
+                ],
+                skills: {
+                    "Engineering & Simulation": ["MATLAB/Simulink", "CST Studio Suite", "Impedanzspektroskopie", "Vektoranalyse"],
+                    "Programming & Analytik": ["Python (Pandas, NumPy)", "Machine Learning", "C++", "GitHub Copilot"],
+                    "Automotive Protokolle": ["CAN/CANoe", "CANalyzer", "PREEvision", "AUTOSAR"]
+                }
+            }
+        };
+
+        function renderAll() {
+            // Update About
+            document.getElementById('about-para').innerText = content[currentLang].about;
+
+            // Update Experience Grid
+            const grid = document.getElementById('exp-grid');
+            grid.innerHTML = '';
+            content[currentLang].experiences.forEach((exp, index) => {
+                grid.innerHTML += `
+                    <div class="flip-card" id="card-${index}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3 class="role-title">${exp.title}</h3>
+                                <p class="duration">${exp.date} | ${exp.company}</p>
+                                <ul class="task-list">
+                                    ${exp.tasks.map(t => `<li>${t}</li>`).join('')}
+                                </ul>
+                                <span class="learn-more">LEARN MORE ⟳</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3 class="role-title" style="font-size: 1.1rem">${exp.title}</h3>
+                                <ul class="task-list" style="font-size: 0.85rem">
+                                    ${exp.deepTasks.map(t => `<li>${t}</li>`).join('')}
+                                </ul>
+                                <div class="skills-developed">
+                                    ${exp.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+                                </div>
+                                <span class="learn-more">BACK ⟲</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Update Skills
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = '';
+            for (const [cat, list] of Object.entries(content[currentLang].skills)) {
+                skillsContainer.innerHTML += `
+                    <div class="skills-category">
+                        <h3>${cat}</h3>
+                        <div class="skills-flex">
+                            ${list.map(s => `<div class="skill-item">${s}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Update UI elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'de' : 'en';
+            renderAll();
+        }
+
+        // Initial Load
+        renderAll();
+    </script>
+</body>
+</html>
