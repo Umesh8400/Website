@@ -11,13 +11,13 @@
 /* ─── TOKENS ─────────────────────────────── */
 :root {
   --ink:      #0d0d0d;
-  --ink2:     #4a4a4a;
-  --ink3:     #9a9a9a;
+  --ink2:     #3a3a3a;
+  --ink3:     #7a7a7a;
   --paper:    #f8f5f0;
   --white:    #ffffff;
   --rule:     #e5e1db;
-  --accent:   #1a3a6b;          /* deep navy */
-  --warm:     #c4863a;          /* warm gold  */
+  --accent:   #1a3a6b;
+  --warm:     #c4863a;
   --serif:    'Fraunces', Georgia, serif;
   --sans:     'DM Sans', sans-serif;
   --mono:     'DM Mono', monospace;
@@ -25,7 +25,6 @@
   --ease2:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ─── RESET ──────────────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:16px; scroll-behavior:smooth; }
 body {
@@ -38,24 +37,20 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display:block; max-width:100%; }
 
-/* ─── SCROLLBAR ──────────────────────────── */
 ::-webkit-scrollbar { width:3px; }
 ::-webkit-scrollbar-track { background: var(--paper); }
 ::-webkit-scrollbar-thumb { background: var(--accent); }
 
-/* ─── I18N ───────────────────────────────── */
 .de { display:none !important; }
 body.lang-de .en { display:none !important; }
 body.lang-de .de { display:revert !important; }
 
-/* ─── PROGRESS BAR ───────────────────────── */
 #prog {
-  position:fixed; top:0; left:0; height:1.5px;
+  position:fixed; top:0; left:0; height:2px;
   background: var(--accent); z-index:9999;
   width:0; transition:width 0.08s;
 }
 
-/* ─── CURSOR ─────────────────────────────── */
 .cur {
   width:8px; height:8px;
   background:var(--accent); border-radius:50%;
@@ -71,7 +66,6 @@ body.lang-de .de { display:revert !important; }
 }
 body:not(:hover) .cur, body:not(:hover) .cur-ring { opacity:0; }
 
-/* ─── NAV ────────────────────────────────── */
 nav {
   position:fixed; top:0; left:0; right:0;
   z-index:1000; padding:22px 48px;
@@ -95,14 +89,13 @@ nav.solid {
   position:absolute; left:50%; transform:translateX(-50%);
 }
 .nav-mid a {
-  font-family:var(--mono); font-size:0.68rem;
+  font-family:var(--mono); font-size:0.75rem;
   letter-spacing:1px; text-transform:uppercase;
   color:var(--ink2); transition:color 0.2s;
 }
 .nav-mid a:hover { color:var(--accent); }
 .nav-right { display:flex; align-items:center; gap:12px; }
 
-/* Language pill */
 .lang-pill {
   display:flex; border:1px solid var(--rule);
   border-radius:100px; overflow:hidden;
@@ -110,7 +103,7 @@ nav.solid {
 }
 .lbtn {
   padding:5px 14px;
-  font-family:var(--mono); font-size:0.65rem;
+  font-family:var(--mono); font-size:0.7rem;
   letter-spacing:1px; color:var(--ink3);
   transition:all 0.2s; cursor:pointer;
   border:none; background:none;
@@ -118,28 +111,25 @@ nav.solid {
 .lbtn.on { background:var(--accent); color:var(--white); }
 .lbtn:hover:not(.on) { color:var(--ink); }
 
-/* CV download button */
 .nav-cv {
   display:inline-flex; align-items:center; gap:7px;
   padding:7px 18px; background:var(--accent);
   color:var(--white); border-radius:100px;
-  font-family:var(--mono); font-size:0.65rem;
+  font-family:var(--mono); font-size:0.7rem;
   letter-spacing:1px; text-transform:uppercase;
   transition:all 0.25s var(--ease2);
 }
 .nav-cv:hover { background:var(--ink); transform:translateY(-1px); }
 
-/* ─── SECTIONS ───────────────────────────── */
 section { overflow:hidden; }
 .wrap { max-width:1140px; margin:0 auto; padding:0 48px; }
 .wrap-sm { max-width:840px; margin:0 auto; padding:0 48px; }
 
-/* Section labels */
 .s-chip {
   display:inline-flex; align-items:center; gap:6px;
   padding:4px 12px; border:1px solid var(--rule);
   border-radius:100px; font-family:var(--mono);
-  font-size:0.62rem; letter-spacing:1.5px;
+  font-size:0.68rem; letter-spacing:1.5px;
   text-transform:uppercase; color:var(--ink3);
   margin-bottom:20px;
 }
@@ -148,7 +138,6 @@ section { overflow:hidden; }
   border-radius:50%; background:var(--accent);
 }
 
-/* Reveal animation */
 .r {
   opacity:0; transform:translateY(32px);
   transition:opacity 0.75s var(--ease), transform 0.75s var(--ease);
@@ -159,7 +148,6 @@ section { overflow:hidden; }
 .r.r3 { transition-delay:0.3s; }
 .r.r4 { transition-delay:0.4s; }
 
-/* Horizontal rule */
 .hr { height:1px; background:var(--rule); margin:0; }
 
 /* ─── HERO ───────────────────────────────── */
@@ -175,7 +163,7 @@ section { overflow:hidden; }
   margin-bottom:48px;
 }
 .hero-eyebrow {
-  font-family:var(--mono); font-size:0.72rem;
+  font-family:var(--mono); font-size:0.8rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--ink3); margin-bottom:20px;
   display:flex; align-items:center; gap:10px;
@@ -201,12 +189,12 @@ section { overflow:hidden; }
 }
 .hero-desc {
   max-width:420px;
-  font-size:1.05rem; font-weight:300;
+  font-size:1.1rem; font-weight:300;
   color:var(--ink2); line-height:1.75;
 }
 .hero-meta {
   text-align:right;
-  font-family:var(--mono); font-size:0.7rem;
+  font-family:var(--mono); font-size:0.78rem;
   color:var(--ink3); line-height:2;
   letter-spacing:0.5px;
 }
@@ -214,7 +202,7 @@ section { overflow:hidden; }
 .hero-scroll-hint {
   position:absolute; bottom:28px; left:50%;
   transform:translateX(-50%);
-  font-family:var(--mono); font-size:0.6rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:3px; text-transform:uppercase;
   color:var(--ink3);
   display:flex; flex-direction:column; align-items:center; gap:10px;
@@ -235,7 +223,7 @@ section { overflow:hidden; }
   to   { opacity:1; transform:translateY(0); }
 }
 
-/* ─── MARQUEE TICKER ─────────────────────── */
+/* ─── TICKER ─────────────────────────────── */
 .ticker-wrap {
   background:var(--accent); color:var(--white);
   padding:14px 0; overflow:hidden;
@@ -249,7 +237,7 @@ section { overflow:hidden; }
 .ticker-item {
   display:flex; align-items:center; gap:32px;
   padding:0 32px; white-space:nowrap;
-  font-family:var(--mono); font-size:0.68rem;
+  font-family:var(--mono); font-size:0.72rem;
   letter-spacing:2px; text-transform:uppercase; opacity:0.9;
 }
 .ticker-dot { width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,0.4); }
@@ -269,7 +257,7 @@ section { overflow:hidden; }
 }
 .about-photo-caption {
   margin-top:14px;
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:1px; color:var(--ink3);
   text-transform:uppercase;
 }
@@ -281,7 +269,7 @@ section { overflow:hidden; }
 }
 .about-text h2 em { font-style:italic; color:var(--accent); }
 .about-text p {
-  font-size:1rem; font-weight:300;
+  font-size:1.05rem; font-weight:300;
   color:var(--ink2); line-height:1.9;
   margin-bottom:18px;
 }
@@ -292,18 +280,15 @@ section { overflow:hidden; }
   border:1px solid var(--rule);
   margin-top:36px;
 }
-.af {
-  background:var(--paper); padding:14px 18px;
-}
+.af { background:var(--paper); padding:14px 18px; }
 .af-lbl {
-  font-family:var(--mono); font-size:0.58rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--ink3); margin-bottom:4px;
 }
-.af-val { font-size:0.9rem; color:var(--ink); }
+.af-val { font-size:0.95rem; color:var(--ink); }
 .af-val .dot { color:var(--accent); }
 
-/* Stats row */
 .stats-row {
   display:flex; gap:0; border-top:1px solid var(--rule);
   border-bottom:1px solid var(--rule);
@@ -321,7 +306,7 @@ section { overflow:hidden; }
 }
 .stat-num span { color:var(--accent); font-style:italic; }
 .stat-lbl {
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:1.5px; text-transform:uppercase;
   color:var(--ink3); margin-top:6px;
 }
@@ -329,9 +314,7 @@ section { overflow:hidden; }
 /* ─── EXPERIENCE ─────────────────────────── */
 #experience { padding:96px 0; background:var(--white); }
 .exp-layout { display:grid; grid-template-columns:280px 1fr; gap:80px; }
-.exp-sticky-head {
-  position:sticky; top:100px; height:fit-content;
-}
+.exp-sticky-head { position:sticky; top:100px; height:fit-content; }
 .exp-section-title {
   font-family:var(--serif);
   font-size:clamp(2rem, 4vw, 3rem);
@@ -340,7 +323,7 @@ section { overflow:hidden; }
 }
 .exp-section-title em { font-style:italic; color:var(--accent); }
 .exp-section-sub {
-  margin-top:16px; font-size:0.9rem; font-weight:300;
+  margin-top:16px; font-size:0.95rem; font-weight:300;
   color:var(--ink2); line-height:1.7;
 }
 .exp-list { display:flex; flex-direction:column; gap:0; }
@@ -353,7 +336,7 @@ section { overflow:hidden; }
 .exp-item:first-child { padding-top:0; }
 .exp-item.v { opacity:1; transform:translateY(0); }
 .exp-co {
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.7rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--accent); margin-bottom:6px;
 }
@@ -364,7 +347,7 @@ section { overflow:hidden; }
   color:var(--ink); line-height:1.2; margin-bottom:6px;
 }
 .exp-period {
-  font-family:var(--mono); font-size:0.65rem;
+  font-family:var(--mono); font-size:0.72rem;
   color:var(--ink3); letter-spacing:1px; margin-bottom:16px;
   display:flex; align-items:center; gap:8px;
 }
@@ -373,18 +356,18 @@ section { overflow:hidden; }
   display:inline-flex; align-items:center;
   padding:2px 9px; border-radius:100px;
   background:#f5f0e0; color:var(--warm);
-  font-family:var(--mono); font-size:0.6rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:1px; margin-left:8px;
 }
 .exp-bullets { list-style:none; }
 .exp-bullets li {
-  font-size:0.92rem; font-weight:300;
+  font-size:0.97rem; font-weight:300;
   color:var(--ink2); line-height:1.8;
   padding:3px 0 3px 20px; position:relative;
 }
 .exp-bullets li::before {
   content:'→'; position:absolute; left:0;
-  color:var(--accent); font-size:0.75rem; top:5px;
+  color:var(--accent); font-size:0.78rem; top:5px;
 }
 
 /* ─── SKILLS ─────────────────────────────── */
@@ -392,32 +375,31 @@ section { overflow:hidden; }
 .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; }
 .sk-title {
   font-family:var(--serif);
-  font-size:1rem; font-weight:700;
+  font-size:1.1rem; font-weight:700;
   color:var(--ink); margin-bottom:20px;
   padding-bottom:12px; border-bottom:1px solid var(--rule);
 }
 .sk-group { margin-bottom:24px; }
 .sk-group-lbl {
-  font-family:var(--mono); font-size:0.58rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--ink3); margin-bottom:10px;
 }
 .sk-tags { display:flex; flex-wrap:wrap; gap:7px; }
 .sk-tag {
-  padding:6px 14px; border:1px solid var(--rule);
+  padding:7px 15px; border:1px solid var(--rule);
   border-radius:100px; font-family:var(--mono);
-  font-size:0.63rem; letter-spacing:0.5px;
+  font-size:0.7rem; letter-spacing:0.5px;
   color:var(--ink2); background:var(--white);
   transition:all 0.2s;
 }
 .sk-tag:hover { border-color:var(--accent); color:var(--accent); }
-.sk-tag.hi { border-color:rgba(26,58,107,0.25); color:var(--accent); background:#eef2f9; }
 
 /* Language bars */
 .ln-row { margin-bottom:18px; }
 .ln-top { display:flex; justify-content:space-between; margin-bottom:8px; }
-.ln-name { font-family:var(--serif); font-size:1rem; font-weight:600; color:var(--ink); }
-.ln-lv { font-family:var(--mono); font-size:0.6rem; color:var(--ink3); text-transform:uppercase; letter-spacing:1px; }
+.ln-name { font-family:var(--serif); font-size:1.05rem; font-weight:600; color:var(--ink); }
+.ln-lv { font-family:var(--mono); font-size:0.68rem; color:var(--ink3); text-transform:uppercase; letter-spacing:1px; }
 .ln-track { height:1px; background:var(--rule); position:relative; }
 .ln-fill {
   position:absolute; left:0; top:0; bottom:0;
@@ -438,18 +420,28 @@ section { overflow:hidden; }
 .cert-card {
   background:var(--paper); border:1px solid var(--rule);
   overflow:hidden; cursor:pointer;
-  transition:border-color 0.25s, transform 0.3s var(--ease), box-shadow 0.3s;
   opacity:0; transform:translateY(18px);
   transition:opacity 0.6s var(--ease), transform 0.6s var(--ease), border-color 0.25s, box-shadow 0.3s;
 }
 .cert-card.v { opacity:1; transform:translateY(0); }
 .cert-card:hover { border-color:var(--accent); transform:translateY(-6px); box-shadow:0 16px 40px rgba(26,58,107,0.1); }
+
+/* PDF Preview thumb */
 .cert-thumb {
-  height:160px; background:var(--white);
+  height:180px; background:var(--white);
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   border-bottom:1px solid var(--rule);
-  position:relative;
+  position:relative; overflow:hidden;
+}
+.cert-thumb-pdf {
+  width:100%; height:100%; border:none;
+  pointer-events:none;
+}
+.cert-thumb-fallback {
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  width:100%; height:100%;
 }
 .cert-glyph {
   font-family:var(--serif); font-size:2.5rem;
@@ -457,18 +449,18 @@ section { overflow:hidden; }
   line-height:1;
 }
 .cert-sub {
-  font-family:var(--mono); font-size:0.58rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--ink3); margin-top:8px;
 }
 .cert-body { padding:18px 20px; }
 .cert-issuer {
-  font-family:var(--mono); font-size:0.58rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--accent); margin-bottom:6px;
 }
 .cert-name {
-  font-family:var(--serif); font-size:0.98rem;
+  font-family:var(--serif); font-size:1rem;
   font-weight:700; color:var(--ink); line-height:1.3;
   margin-bottom:14px;
 }
@@ -478,13 +470,13 @@ section { overflow:hidden; }
   border-top:1px solid var(--rule);
 }
 .cert-view {
-  font-family:var(--mono); font-size:0.58rem;
+  font-family:var(--mono); font-size:0.63rem;
   letter-spacing:1.5px; text-transform:uppercase;
   color:var(--accent);
 }
 .cert-view::after { content:' ↗'; }
 .cert-fmt {
-  font-family:var(--mono); font-size:0.55rem;
+  font-family:var(--mono); font-size:0.6rem;
   color:var(--ink3); letter-spacing:1px;
 }
 
@@ -509,27 +501,27 @@ section { overflow:hidden; }
   line-height:1; pointer-events:none;
 }
 .edu-school {
-  font-family:var(--mono); font-size:0.6rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--accent); margin-bottom:8px;
 }
 .edu-degree {
-  font-family:var(--serif); font-size:1.05rem;
+  font-family:var(--serif); font-size:1.1rem;
   font-weight:700; color:var(--ink); line-height:1.3;
   margin-bottom:10px;
 }
 .edu-period {
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.68rem;
   color:var(--ink3); letter-spacing:1px; margin-bottom:12px;
 }
 .edu-grade {
   display:inline-flex; padding:3px 10px;
   border-radius:100px; background:#f5f0e0;
   color:var(--warm); font-family:var(--mono);
-  font-size:0.62rem; letter-spacing:1px; margin-bottom:12px;
+  font-size:0.65rem; letter-spacing:1px; margin-bottom:12px;
 }
 .edu-focus {
-  font-size:0.82rem; color:var(--ink3); line-height:1.65; font-weight:300;
+  font-size:0.88rem; color:var(--ink3); line-height:1.65; font-weight:300;
 }
 
 /* ─── PROJECTS ───────────────────────────── */
@@ -547,20 +539,20 @@ section { overflow:hidden; }
   line-height:1; margin-bottom:10px;
 }
 .proj-title {
-  font-family:var(--serif); font-size:1.1rem;
+  font-family:var(--serif); font-size:1.15rem;
   font-weight:700; color:var(--ink); margin-bottom:6px;
 }
 .proj-sub {
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:1.5px; text-transform:uppercase;
   color:var(--accent); margin-bottom:12px;
 }
-.proj-desc { font-size:0.9rem; font-weight:300; color:var(--ink2); line-height:1.8; }
+.proj-desc { font-size:0.95rem; font-weight:300; color:var(--ink2); line-height:1.8; }
 .proj-tags { margin-top:14px; display:flex; flex-wrap:wrap; gap:6px; }
 .ptag {
-  padding:3px 10px; border:1px solid var(--rule);
+  padding:4px 11px; border:1px solid var(--rule);
   border-radius:100px; font-family:var(--mono);
-  font-size:0.58rem; letter-spacing:1px; color:var(--ink3);
+  font-size:0.63rem; letter-spacing:1px; color:var(--ink3);
 }
 
 /* ─── ACHIEVEMENTS ───────────────────────── */
@@ -572,15 +564,15 @@ section { overflow:hidden; }
 }
 .ach-card:hover { border-color:var(--warm); }
 .ach-badge {
-  font-family:var(--mono); font-size:0.6rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:2px; text-transform:uppercase;
   color:var(--warm); margin-bottom:12px;
 }
 .ach-title {
-  font-family:var(--serif); font-size:1.05rem;
+  font-family:var(--serif); font-size:1.1rem;
   font-weight:700; color:var(--ink); margin-bottom:10px;
 }
-.ach-text { font-size:0.9rem; font-weight:300; color:var(--ink2); line-height:1.8; }
+.ach-text { font-size:0.95rem; font-weight:300; color:var(--ink2); line-height:1.8; }
 
 /* ─── TESTIMONIALS ───────────────────────── */
 #testimonials { padding:96px 0; background:var(--white); }
@@ -596,15 +588,19 @@ section { overflow:hidden; }
   line-height:0.8; margin-bottom:12px; display:block;
 }
 .rec-text {
-  font-size:0.9rem; font-weight:300;
+  font-size:0.95rem; font-weight:300;
   color:var(--ink2); line-height:1.85;
   font-style:italic; margin-bottom:20px;
 }
 .rec-hr { height:1px; background:var(--rule); margin-bottom:14px; }
 .rec-author {
-  font-family:var(--mono); font-size:0.62rem;
+  font-family:var(--mono); font-size:0.68rem;
   letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--accent);
+  color:var(--accent); margin-bottom:4px;
+}
+.rec-role {
+  font-family:var(--mono); font-size:0.62rem;
+  color:var(--ink3); letter-spacing:1px;
 }
 
 /* ─── CONTACT ────────────────────────────── */
@@ -618,7 +614,7 @@ section { overflow:hidden; }
 }
 .contact-caption {
   margin-top:12px; font-family:var(--mono);
-  font-size:0.62rem; letter-spacing:1px; color:var(--ink3); text-transform:uppercase;
+  font-size:0.68rem; letter-spacing:1px; color:var(--ink3); text-transform:uppercase;
 }
 .contact-headline {
   font-family:var(--serif);
@@ -627,32 +623,38 @@ section { overflow:hidden; }
   color:var(--ink); margin-bottom:20px;
 }
 .contact-headline em { font-style:italic; color:var(--accent); }
-.contact-intro { font-size:0.95rem; font-weight:300; color:var(--ink2); line-height:1.9; margin-bottom:36px; }
+.contact-intro { font-size:1rem; font-weight:300; color:var(--ink2); line-height:1.9; margin-bottom:36px; }
 .contact-links { display:flex; flex-direction:column; gap:0; }
 .ct-link {
-  display:flex; align-items:center; gap:14px;
-  padding:16px 0; border-bottom:1px solid var(--rule);
+  display:flex; align-items:center; gap:16px;
+  padding:18px 0; border-bottom:1px solid var(--rule);
   transition:all 0.25s var(--ease2);
 }
 .ct-link:first-child { border-top:1px solid var(--rule); }
 .ct-link:hover { padding-left:8px; }
 .ct-link:hover .ct-arrow { opacity:1; transform:translateX(0); }
+
+/* Icon circle with SVG logos */
 .ct-icon {
-  width:36px; height:36px; border-radius:50%;
+  width:42px; height:42px; border-radius:50%;
   background:var(--white); border:1px solid var(--rule);
   display:flex; align-items:center; justify-content:center;
-  font-family:var(--mono); font-size:0.65rem;
-  color:var(--accent); font-weight:500; flex-shrink:0;
-  transition:all 0.2s;
+  flex-shrink:0; transition:all 0.2s;
 }
-.ct-link:hover .ct-icon { background:var(--accent); color:var(--white); border-color:var(--accent); }
+.ct-link:hover .ct-icon { background:var(--accent); border-color:var(--accent); }
+.ct-icon svg { width:18px; height:18px; transition:fill 0.2s, stroke 0.2s; }
+.ct-icon svg.fill-icon { fill:var(--accent); }
+.ct-link:hover .ct-icon svg.fill-icon { fill:var(--white); }
+.ct-icon svg.stroke-icon { stroke:var(--accent); fill:none; }
+.ct-link:hover .ct-icon svg.stroke-icon { stroke:var(--white); }
+
 .ct-info { flex:1; }
 .ct-lbl {
-  font-family:var(--mono); font-size:0.57rem;
+  font-family:var(--mono); font-size:0.65rem;
   letter-spacing:2px; text-transform:uppercase;
-  color:var(--ink3); display:block; margin-bottom:1px;
+  color:var(--ink3); display:block; margin-bottom:2px;
 }
-.ct-val { font-size:0.9rem; color:var(--ink); }
+.ct-val { font-size:0.95rem; color:var(--ink); }
 .ct-arrow {
   font-size:0.8rem; color:var(--accent);
   opacity:0; transform:translateX(-6px); transition:all 0.25s;
@@ -664,7 +666,7 @@ footer {
   display:flex; justify-content:space-between; align-items:center;
 }
 .foot-name { font-family:var(--serif); font-size:0.95rem; font-weight:700; color:var(--white); }
-.foot-right { font-family:var(--mono); font-size:0.6rem; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+.foot-right { font-family:var(--mono); font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width:900px) {
@@ -724,8 +726,7 @@ footer {
       <span class="de">Batterieingenieur · Stuttgart, Deutschland</span>
     </div>
     <h1 class="hero-name">
-      <span class="en">Umesh<br><span class="ital">Joshi.</span></span>
-      <span class="de">Umesh<br><span class="ital">Joshi.</span></span>
+      Umesh<br><span class="ital">Joshi.</span>
     </h1>
   </div>
   <div class="hero-desc-row">
@@ -736,7 +737,7 @@ footer {
       Elektroingenieur, der die Intelligenz von Lithium-Ionen-Batterien bei der Mercedes-Benz AG weiterentwickelt — durch die Verbindung von elektrochemischer Physik mit maschinellem Lernen.
     </p>
     <div class="hero-meta">
-      <div><strong class="en">Currently at</strong><strong class="de">Aktuell bei</strong> Mercedes-Benz AG</div>
+      <div><strong class="en">Prev. at</strong><strong class="de">Zuletzt bei</strong> Mercedes-Benz AG</div>
       <div>M.Eng. <span class="en">Renewable Energies</span><span class="de">Erneuerbare Energien</span></div>
       <div>Esslingen, Stuttgart</div>
     </div>
@@ -788,10 +789,10 @@ footer {
         <div class="about-text">
           <h2 class="en">Engineer by mind. <em>Innovator</em> by nature.</h2>
           <h2 class="de">Ingenieur aus Überzeugung. <em>Innovator</em> aus Leidenschaft.</h2>
-          <p class="en">I am an Electrical Engineer specialising in battery development, predictive algorithms and system validation for next-generation electric vehicles. Currently at <strong>Mercedes-Benz AG, Stuttgart</strong>, I bridge electrochemical physics and machine learning to make EV batteries smarter and more reliable.</p>
-          <p class="de">Ich bin Elektroingenieur mit Spezialisierung auf Batterieentwicklung, prädiktive Algorithmen und Systemvalidierung. Derzeit bei der <strong>Mercedes-Benz AG, Stuttgart</strong>, verbinde ich elektrochemische Physik mit maschinellem Lernen.</p>
-          <p class="en">My master's thesis achieved an <strong>80–85 % improvement in model accuracy</strong> for lithium-ion voltage relaxation prediction — research I'm now continuing as a working student in Battery Development, Algorithms &amp; Applications.</p>
-          <p class="de">Meine Masterarbeit erzielte eine <strong>80–85 % verbesserte Modellgenauigkeit</strong> bei der Vorhersage der Spannungsrelaxation — Forschung, die ich als Werkstudent fortführe.</p>
+          <p class="en">I am an Electrical Engineer specialising in battery development, predictive algorithms and system validation for next-generation electric vehicles. Previously at <strong>Mercedes-Benz AG, Stuttgart</strong>, I bridged electrochemical physics and machine learning to make EV batteries smarter and more reliable.</p>
+          <p class="de">Ich bin Elektroingenieur mit Spezialisierung auf Batterieentwicklung, prädiktive Algorithmen und Systemvalidierung. Zuletzt bei der <strong>Mercedes-Benz AG, Stuttgart</strong>, verband ich elektrochemische Physik mit maschinellem Lernen.</p>
+          <p class="en">My master's thesis achieved an <strong>80–85 % improvement in model accuracy</strong> for lithium-ion voltage relaxation prediction — research that continued as a working student in Battery Development, Algorithms &amp; Applications until January 2026.</p>
+          <p class="de">Meine Masterarbeit erzielte eine <strong>80–85 % verbesserte Modellgenauigkeit</strong> bei der Vorhersage der Spannungsrelaxation — Forschung, die ich bis Januar 2026 als Werkstudent fortführte.</p>
           <div class="about-facts">
             <div class="af">
               <div class="af-lbl en">Location</div><div class="af-lbl de">Standort</div>
@@ -802,7 +803,7 @@ footer {
               <div class="af-val">India 🇮🇳 · 08 Apr 2000</div>
             </div>
             <div class="af">
-              <div class="af-lbl en">Current Role</div><div class="af-lbl de">Aktuelle Stelle</div>
+              <div class="af-lbl en">Last Role</div><div class="af-lbl de">Letzte Stelle</div>
               <div class="af-val">Working Student @ MB AG</div>
             </div>
             <div class="af">
@@ -855,15 +856,15 @@ footer {
       </div>
 
       <div class="exp-list">
-        <!-- MB Ongoing -->
+        <!-- MB Ongoing → ended 01.2026 -->
         <div class="exp-item">
           <div class="exp-co">Mercedes-Benz AG · Stuttgart</div>
           <div class="exp-role en">Working Student — Battery Dev, Algorithms &amp; Applications</div>
           <div class="exp-role de">Werkstudent — Batterieentwicklung, Algorithmen &amp; Applikationen</div>
-          <div class="exp-period">08.2025 — <span class="en">Ongoing</span><span class="de">Laufend</span></div>
+          <div class="exp-period">08.2025 — 01.2026</div>
           <ul class="exp-bullets en">
-            <li>Extending the voltage relaxation model within a supervised Machine Learning framework for predictive analysis.</li>
-            <li>Creating anomaly datasets and structured data catalogs from experimental battery measurements.</li>
+            <li>Extended the voltage relaxation model within a supervised Machine Learning framework for predictive analysis.</li>
+            <li>Created anomaly datasets and structured data catalogs from experimental battery measurements.</li>
           </ul>
           <ul class="exp-bullets de">
             <li>Erweiterung des Spannungsrelaxationsmodells im überwachten ML-Framework zur prädiktiven Analyse.</li>
@@ -964,19 +965,43 @@ footer {
         <div class="sk-title de">Software &amp; Werkzeuge</div>
         <div class="sk-group">
           <div class="sk-group-lbl en">Battery &amp; Simulation</div><div class="sk-group-lbl de">Batterie &amp; Simulation</div>
-          <div class="sk-tags"><span class="sk-tag hi">MATLAB / Simulink</span><span class="sk-tag hi">Python</span><span class="sk-tag hi">CST Studio Suite</span><span class="sk-tag">LT Spice</span><span class="sk-tag">Impedance Analysis</span><span class="sk-tag">X-Frame / DIAdem</span></div>
+          <div class="sk-tags">
+            <span class="sk-tag">MATLAB / Simulink</span>
+            <span class="sk-tag">Python</span>
+            <span class="sk-tag">CST Studio Suite</span>
+            <span class="sk-tag">LT Spice</span>
+            <span class="sk-tag">Impedance Analysis</span>
+            <span class="sk-tag">X-Frame / DIAdem</span>
+          </div>
         </div>
         <div class="sk-group">
           <div class="sk-group-lbl en">Machine Learning &amp; Data</div><div class="sk-group-lbl de">Machine Learning &amp; Daten</div>
-          <div class="sk-tags"><span class="sk-tag hi">Machine Learning (AI/ML)</span><span class="sk-tag hi">Pandas / NumPy</span><span class="sk-tag hi">CyIPOPT</span><span class="sk-tag">Anomaly Detection</span><span class="sk-tag">Data Modelling</span></div>
+          <div class="sk-tags">
+            <span class="sk-tag">Machine Learning (AI/ML)</span>
+            <span class="sk-tag">Pandas / NumPy</span>
+            <span class="sk-tag">CyIPOPT</span>
+            <span class="sk-tag">Anomaly Detection</span>
+            <span class="sk-tag">Data Modelling</span>
+          </div>
         </div>
         <div class="sk-group">
           <div class="sk-group-lbl en">Automotive &amp; Embedded</div><div class="sk-group-lbl de">Automotive &amp; Embedded</div>
-          <div class="sk-tags"><span class="sk-tag hi">CAN / CANoe / CANalyzer</span><span class="sk-tag hi">AUTOSAR</span><span class="sk-tag">PREEvision</span><span class="sk-tag">ECU Design</span></div>
+          <div class="sk-tags">
+            <span class="sk-tag">CAN / CANoe / CANalyzer</span>
+            <span class="sk-tag">AUTOSAR</span>
+            <span class="sk-tag">PREEvision</span>
+            <span class="sk-tag">ECU Design</span>
+          </div>
         </div>
         <div class="sk-group">
           <div class="sk-group-lbl en">Development</div><div class="sk-group-lbl de">Entwicklung</div>
-          <div class="sk-tags"><span class="sk-tag">GitHub / Git</span><span class="sk-tag">GitHub Copilot</span><span class="sk-tag">VS Code</span><span class="sk-tag">Confluence</span><span class="sk-tag">C / C++ / OOP</span></div>
+          <div class="sk-tags">
+            <span class="sk-tag">GitHub / Git</span>
+            <span class="sk-tag">GitHub Copilot</span>
+            <span class="sk-tag">VS Code</span>
+            <span class="sk-tag">Confluence</span>
+            <span class="sk-tag">C / C++ / OOP</span>
+          </div>
         </div>
       </div>
       <div class="r r2">
@@ -990,8 +1015,17 @@ footer {
           <div class="sk-group-lbl en" style="margin-bottom:12px;">Core Competencies</div>
           <div class="sk-group-lbl de" style="margin-bottom:12px;">Kernkompetenzen</div>
           <div class="sk-tags">
-            <span class="sk-tag en">Battery Modelling</span><span class="sk-tag en">SOC Estimation</span><span class="sk-tag en">System Validation</span><span class="sk-tag en">Algorithm Development</span><span class="sk-tag en">Predictive Analysis</span><span class="sk-tag en">Test Automation</span>
-            <span class="sk-tag de">Batteriemodellierung</span><span class="sk-tag de">SOC-Schätzung</span><span class="sk-tag de">Systemvalidierung</span><span class="sk-tag de">Algorithmenentwicklung</span><span class="sk-tag de">Testautomatisierung</span>
+            <span class="sk-tag en">Battery Modelling</span>
+            <span class="sk-tag en">SOC Estimation</span>
+            <span class="sk-tag en">System Validation</span>
+            <span class="sk-tag en">Algorithm Development</span>
+            <span class="sk-tag en">Predictive Analysis</span>
+            <span class="sk-tag en">Test Automation</span>
+            <span class="sk-tag de">Batteriemodellierung</span>
+            <span class="sk-tag de">SOC-Schätzung</span>
+            <span class="sk-tag de">Systemvalidierung</span>
+            <span class="sk-tag de">Algorithmenentwicklung</span>
+            <span class="sk-tag de">Testautomatisierung</span>
           </div>
         </div>
       </div>
@@ -1007,23 +1041,36 @@ footer {
     <div class="r">
       <div class="s-chip en">Credentials</div><div class="s-chip de">Nachweise</div>
       <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);"><span class="en">Certificates &amp; <em style='font-style:italic;color:var(--accent)'>Licences</em></span><span class="de">Zertifikate &amp; <em style='font-style:italic;color:var(--accent)'>Nachweise</em></span></h2>
+      <p style="margin-top:12px;font-size:0.9rem;color:var(--ink3);font-family:var(--mono);letter-spacing:0.5px;" class="en">Click any card to open the full certificate.</p>
+      <p style="margin-top:12px;font-size:0.9rem;color:var(--ink3);font-family:var(--mono);letter-spacing:0.5px;" class="de">Auf eine Karte klicken, um das vollständige Zertifikat zu öffnen.</p>
     </div>
     <div class="cert-grid">
+
+      <!-- 1 — Academic Excellence -->
       <div class="cert-card" onclick="window.open('Bachelor_Academic_Excellence.pdf','_blank')" style="transition-delay:0s">
         <div class="cert-thumb" style="background:#fdf8ee;">
-          <div class="cert-glyph" style="color:var(--warm);opacity:0.6;">🥈</div>
-          <div class="cert-sub en">Academic Excellence</div><div class="cert-sub de">Akad. Auszeichnung</div>
+          <div class="cert-thumb-fallback">
+            <div style="font-size:2.8rem;line-height:1;">🥈</div>
+            <div class="cert-sub en">Academic Excellence</div>
+            <div class="cert-sub de">Akad. Auszeichnung</div>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer en">University of Mumbai</div><div class="cert-issuer de">Universität Mumbai</div>
-          <div class="cert-name en">2nd Rank — Bachelor of Electrical Engineering</div><div class="cert-name de">2. Platz — Bachelor Elektrotechnik</div>
+          <div class="cert-name en">2nd Rank — Bachelor of Electrical Engineering</div>
+          <div class="cert-name de">2. Platz — Bachelor Elektrotechnik</div>
           <div class="cert-foot"><span class="cert-view en">View</span><span class="cert-view de">Öffnen</span><span class="cert-fmt">PDF</span></div>
         </div>
       </div>
+
+      <!-- 2 — Python -->
       <div class="cert-card" onclick="window.open('Python.pdf','_blank')" style="transition-delay:0.08s">
-        <div class="cert-thumb">
-          <div class="cert-glyph" style="font-family:var(--mono);font-size:2.2rem;">Py</div>
-          <div class="cert-sub">Python</div>
+        <div class="cert-thumb" style="background:#f0f4ff;">
+          <div class="cert-thumb-fallback" id="cert-python-preview">
+            <!-- Will be replaced by iframe if PDF loads -->
+            <div style="font-family:var(--mono);font-size:3rem;font-weight:700;color:#3572A5;opacity:0.7;line-height:1;">Py</div>
+            <div class="cert-sub">Python Programming</div>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer en">Certification</div><div class="cert-issuer de">Zertifizierung</div>
@@ -1031,10 +1078,17 @@ footer {
           <div class="cert-foot"><span class="cert-view en">View</span><span class="cert-view de">Öffnen</span><span class="cert-fmt">PDF</span></div>
         </div>
       </div>
+
+      <!-- 3 — GitHub Copilot -->
       <div class="cert-card" onclick="window.open('AI Pair Programming with GitHub Copilot.pdf','_blank')" style="transition-delay:0.16s">
-        <div class="cert-thumb">
-          <div class="cert-glyph" style="font-family:var(--mono);font-size:2rem;">AI</div>
-          <div class="cert-sub">GitHub Copilot</div>
+        <div class="cert-thumb" style="background:#f0f4f8;">
+          <div class="cert-thumb-fallback">
+            <!-- GitHub Copilot icon SVG -->
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.6">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z" fill="#1a3a6b"/>
+            </svg>
+            <div class="cert-sub">GitHub Copilot</div>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer">GitHub</div>
@@ -1042,28 +1096,39 @@ footer {
           <div class="cert-foot"><span class="cert-view en">View</span><span class="cert-view de">Öffnen</span><span class="cert-fmt">PDF</span></div>
         </div>
       </div>
+
+      <!-- 4 — Machine Learning -->
       <div class="cert-card" onclick="window.open('Machine Learning with Python Foundations.pdf','_blank')" style="transition-delay:0.08s">
-        <div class="cert-thumb">
-          <div class="cert-glyph" style="font-family:var(--mono);font-size:2rem;">ML</div>
-          <div class="cert-sub">Machine Learning</div>
+        <div class="cert-thumb" style="background:#f0f6f0;">
+          <div class="cert-thumb-fallback">
+            <div style="font-family:var(--mono);font-size:3rem;font-weight:700;color:#2a6b3a;opacity:0.6;line-height:1;">ML</div>
+            <div class="cert-sub">Machine Learning</div>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer en">Certification</div><div class="cert-issuer de">Zertifizierung</div>
-          <div class="cert-name en">Machine Learning with Python Foundations</div><div class="cert-name de">ML mit Python — Grundlagen</div>
+          <div class="cert-name en">Machine Learning with Python Foundations</div>
+          <div class="cert-name de">ML mit Python — Grundlagen</div>
           <div class="cert-foot"><span class="cert-view en">View</span><span class="cert-view de">Öffnen</span><span class="cert-fmt">PDF</span></div>
         </div>
       </div>
+
+      <!-- 5 — Systems Engineering -->
       <div class="cert-card" onclick="window.open('Systems Engineering with SysML.pdf','_blank')" style="transition-delay:0.16s">
         <div class="cert-thumb" style="background:#f6f8ee;">
-          <div class="cert-glyph" style="font-family:var(--mono);font-size:2rem;color:#3a6b1a;opacity:0.35;">SE</div>
-          <div class="cert-sub">Systems Engineering</div>
+          <div class="cert-thumb-fallback">
+            <div style="font-family:var(--mono);font-size:3rem;font-weight:700;color:#3a6b1a;opacity:0.55;line-height:1;">SE</div>
+            <div class="cert-sub">Systems Engineering</div>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer en">Certification</div><div class="cert-issuer de">Zertifizierung</div>
-          <div class="cert-name en">Systems Engineering with SysML</div><div class="cert-name de">Systemtechnik mit SysML</div>
+          <div class="cert-name en">Systems Engineering with SysML</div>
+          <div class="cert-name de">Systemtechnik mit SysML</div>
           <div class="cert-foot"><span class="cert-view en">View</span><span class="cert-view de">Öffnen</span><span class="cert-fmt">PDF</span></div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1174,27 +1239,52 @@ footer {
       <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);margin-bottom:48px;"><span class="en">What Colleagues <em style='font-style:italic;color:var(--accent)'>Say</em></span><span class="de">Was Kollegen <em style='font-style:italic;color:var(--accent)'>sagen</em></span></h2>
     </div>
     <div class="rec-grid">
+
+      <!-- Dr. Heiko Witzenhausen — Thesis Supervisor MB AG -->
       <div class="rec-card r">
         <span class="rec-qm">"</span>
-        <p class="rec-text en">Umesh demonstrated exceptional skills in battery modelling and optimisation. His innovative approach significantly improved our SOC estimation accuracy.</p>
-        <p class="rec-text de">Umesh zeigte außergewöhnliche Fähigkeiten in der Batteriemodellierung. Sein innovativer Ansatz verbesserte unsere SOC-Schätzgenauigkeit erheblich.</p>
+        <p class="rec-text en">
+          Umesh's work results were, even in the most difficult cases and under deadline pressure, always of the highest quality. He mastered his area of work comprehensively and above average throughout the entire period of employment. After a very short time, Umesh worked completely independently and always reliably, showing a very high degree of initiative, great resilience and utmost flexibility. His conduct towards managers and team members was exemplary at all times.
+        </p>
+        <p class="rec-text de">
+          Die Arbeitsergebnisse von Herrn Joshi waren, auch in schwierigsten Fällen und unter Termindruck, stets von höchster Qualität. Er beherrschte seinen Arbeitsbereich umfassend und überdurchschnittlich. Bereits nach kürzester Zeit arbeitete Herr Joshi vollkommen selbständig und zuverlässig. Er zeigte stets größte Eigeninitiative, Belastbarkeit und Flexibilität. Sein Verhalten gegenüber Führungskräften und Teammitgliedern war jederzeit vorbildlich.
+        </p>
         <div class="rec-hr"></div>
-        <div class="rec-author en">Supervisor · Mercedes-Benz AG</div><div class="rec-author de">Betreuer · Mercedes-Benz AG</div>
+        <div class="rec-author">Dr.-Ing. Heiko Witzenhausen</div>
+        <div class="rec-role en">Master Thesis Supervisor · Mercedes-Benz AG</div>
+        <div class="rec-role de">Masterarbeit-Betreuer · Mercedes-Benz AG</div>
       </div>
+
+      <!-- Mehmet Ali Sayegi — MB AG Colleague -->
       <div class="rec-card r r1">
         <span class="rec-qm">"</span>
-        <p class="rec-text en">A dedicated and quick learner. Umesh's automation scripts saved our team countless hours. Highly recommended for any battery development role.</p>
-        <p class="rec-text de">Ein engagierter und schneller Lerner. Umeshs Automatisierungsskripte haben unserem Team unzählige Stunden gespart.</p>
+        <p class="rec-text en">
+          Working alongside Umesh in the HV Battery Development team was a genuinely enriching experience. His MATLAB automation scripts removed what felt like mountains of manual measurement work from our daily routines — efficiency gains I still benefit from. Beyond the technical skills, Umesh approaches every challenge with curiosity and precision, and is always willing to support the team. I'd recommend him without hesitation for any battery engineering position.
+        </p>
+        <p class="rec-text de">
+          Die Zusammenarbeit mit Umesh im HV-Batterieentwicklungs-Team war eine bereichernde Erfahrung. Seine MATLAB-Automatisierungsskripte haben uns enorme manuelle Arbeit abgenommen. Umesh geht jede Herausforderung mit Neugierde und Präzision an und unterstützt das Team stets. Ich empfehle ihn ohne Zögern für jede Stelle im Bereich Batterieentwicklung.
+        </p>
         <div class="rec-hr"></div>
-        <div class="rec-author en">Colleague · Mercedes-Benz AG</div><div class="rec-author de">Kollege · Mercedes-Benz AG</div>
+        <div class="rec-author">Mehmet Ali Sayegi</div>
+        <div class="rec-role en">Colleague, Working Student · Mercedes-Benz AG (02.2024–11.2024)</div>
+        <div class="rec-role de">Kollege, Werkstudent · Mercedes-Benz AG (02.2024–11.2024)</div>
       </div>
+
+      <!-- Rainer Öfele — ElringKlinger AG -->
       <div class="rec-card r r2">
         <span class="rec-qm">"</span>
-        <p class="rec-text en">Umesh's attention to detail in testing and validation was impressive. He contributed greatly to our hardware designs and validation workflows.</p>
-        <p class="rec-text de">Umeshs Sorgfalt bei Tests und Validierung war beeindruckend. Er hat wesentlich zu unseren Hardware-Designs beigetragen.</p>
+        <p class="rec-text en">
+          For every problem that arose, Umesh consistently found excellent solutions. We were at all times and in every respect fully satisfied with his performance. He presented himself without exception as exceptionally polite and friendly. His conduct towards superiors, colleagues and business partners was exemplary throughout. We sincerely thank him for his consistently strong work and the always very pleasant collaboration — and were pleased to continue with him as a working student directly after his internship.
+        </p>
+        <p class="rec-text de">
+          Für alle auftretenden Probleme fand Herr Joshi ausnahmslos gute Lösungen. Wir waren mit seinen Leistungen stets und in jeder Hinsicht zufrieden. Er trat ausnahmslos ausgesprochen höflich und freundlich auf. Sein Verhalten gegenüber Vorgesetzten und Kollegen war stets vorbildlich. Wir bedanken uns für die stets guten Leistungen und die sehr angenehme Zusammenarbeit und freuten uns, ihn im Anschluss als Werkstudenten weiterzubeschäftigen.
+        </p>
         <div class="rec-hr"></div>
-        <div class="rec-author en">Team Lead · ElringKlinger AG</div><div class="rec-author de">Teamleiter · ElringKlinger AG</div>
+        <div class="rec-author">Rainer Öfele</div>
+        <div class="rec-role en">Internship Supervisor · ElringKlinger AG</div>
+        <div class="rec-role de">Praktikumsbetreuer · ElringKlinger AG</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1217,31 +1307,82 @@ footer {
         <p class="contact-intro en">Available for full-time roles, collaborative research and challenging battery engineering projects. Based in Stuttgart with deep expertise in Li-ion systems, ML-based modelling and automotive validation.</p>
         <p class="contact-intro de">Verfügbar für Vollzeitstellen, kooperative Forschung und anspruchsvolle Projekte. In Stuttgart ansässig mit tiefem Fachwissen in Li-Ionen-Systemen und automobiler Validierung.</p>
         <div class="contact-links">
+
+          <!-- Email -->
           <a href="mailto:studentumeshjoshi@gmail.com" class="ct-link">
-            <div class="ct-icon">@</div>
-            <div class="ct-info"><span class="ct-lbl">Email</span><span class="ct-val">studentumeshjoshi@gmail.com</span></div>
+            <div class="ct-icon">
+              <svg class="stroke-icon" viewBox="0 0 24 24" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <polyline points="2,4 12,13 22,4"/>
+              </svg>
+            </div>
+            <div class="ct-info">
+              <span class="ct-lbl">Email</span>
+              <span class="ct-val">studentumeshjoshi@gmail.com</span>
+            </div>
             <span class="ct-arrow">→</span>
           </a>
+
+          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/umesh-joshi-689661185/" target="_blank" class="ct-link">
-            <div class="ct-icon">in</div>
-            <div class="ct-info"><span class="ct-lbl">LinkedIn</span><span class="ct-val">Umesh Joshi</span></div>
+            <div class="ct-icon">
+              <svg class="fill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+            <div class="ct-info">
+              <span class="ct-lbl">LinkedIn</span>
+              <span class="ct-val">Connect with Umesh Joshi</span>
+            </div>
             <span class="ct-arrow">→</span>
           </a>
+
+          <!-- XING -->
           <a href="https://www.xing.com/profile/Umesh_Joshi5/web_profiles" target="_blank" class="ct-link">
-            <div class="ct-icon">X+</div>
-            <div class="ct-info"><span class="ct-lbl">XING</span><span class="ct-val">Umesh Joshi</span></div>
+            <div class="ct-icon">
+              <svg class="fill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.08.344.02.535l2.35 4.073c.004.007.004.016 0 .022L1.86 16.051c-.099.188-.093.381 0 .529.085.142.25.218.465.218h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.627-.962-.627H3.648v.001z"/>
+              </svg>
+            </div>
+            <div class="ct-info">
+              <span class="ct-lbl">XING</span>
+              <span class="ct-val">Umesh Joshi Profile</span>
+            </div>
             <span class="ct-arrow">→</span>
           </a>
+
+          <!-- StepStone -->
           <a href="https://www.stepstone.de/profile" target="_blank" class="ct-link">
-            <div class="ct-icon">SS</div>
-            <div class="ct-info"><span class="ct-lbl">StepStone</span><span class="ct-val">Umesh Joshi Profile</span></div>
+            <div class="ct-icon">
+              <svg class="fill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="none" stroke-width="0"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+              </svg>
+            </div>
+            <div class="ct-info">
+              <span class="ct-lbl">StepStone</span>
+              <span class="ct-val">Umesh Joshi Profile</span>
+            </div>
             <span class="ct-arrow">→</span>
           </a>
+
+          <!-- Download CV -->
           <a href="UmeshJ_Lebenslauf_.pdf" download class="ct-link">
-            <div class="ct-icon">CV</div>
-            <div class="ct-info"><span class="ct-lbl en">Download CV</span><span class="ct-lbl de">Lebenslauf laden</span><span class="ct-val">UmeshJ_Lebenslauf_.pdf</span></div>
+            <div class="ct-icon">
+              <svg class="stroke-icon" viewBox="0 0 24 24" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
+            <div class="ct-info">
+              <span class="ct-lbl en">Download CV</span>
+              <span class="ct-lbl de">Lebenslauf laden</span>
+              <span class="ct-val">UmeshJ_Lebenslauf_.pdf</span>
+            </div>
             <span class="ct-arrow">↓</span>
           </a>
+
         </div>
       </div>
     </div>
