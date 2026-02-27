@@ -134,7 +134,7 @@ section { overflow:hidden; }
   text-transform:uppercase; color:var(--ink3);
   margin-bottom:20px;
 }
-.s-chip::before {
+.s-chip.active-dot::before {
   content:''; width:5px; height:5px;
   border-radius:50%; background:var(--chip-dot);
 }
@@ -631,8 +631,8 @@ footer { background:var(--ink); padding:24px 48px; display:flex; justify-content
 <section id="hero">
   <div class="hero-top">
     <div class="hero-eyebrow">
-      <span class="en">Electrical Engineer · Available · Flexible on Location</span>
-      <span class="de">Elektroingenieur · Verfügbar · Standort Flexibel</span>
+      <span class="en">Electrical Engineer · Stuttgart, Germany</span>
+      <span class="de">Elektroingenieur · Stuttgart, Deutschland</span>
     </div>
     <h1 class="hero-name">Umesh<br><span class="ital">Joshi.</span></h1>
   </div>
@@ -692,8 +692,8 @@ footer { background:var(--ink); padding:24px 48px; display:flex; justify-content
         <p class="about-photo-caption de">Umesh Joshi · Stuttgart, 2026</p>
       </div>
       <div class="r r1">
-        <div class="s-chip en">About Me</div>
-        <div class="s-chip de">Über mich</div>
+        <div class="s-chip active-dot en">About Me</div>
+        <div class="s-chip active-dot de">Über mich</div>
         <div class="about-text">
           <h2 class="en">Engineer by mind. <em>Innovator</em> by nature.</h2>
           <h2 class="de">Ingenieur aus Überzeugung. <em>Innovator</em> aus Leidenschaft.</h2>
@@ -960,7 +960,7 @@ footer { background:var(--ink); padding:24px 48px; display:flex; justify-content
         <p class="contact-caption de">Verfügbar · Standort Flexibel · 2026</p>
       </div>
       <div class="r r1">
-        <div class="s-chip en">Get In Touch</div><div class="s-chip de">Kontakt</div>
+        <div class="s-chip active-dot en">Reach Out</div><div class="s-chip active-dot de">Lass uns sprechen</div>
         <h2 class="contact-headline en">Open to new <em>opportunities.</em></h2>
         <h2 class="contact-headline de">Offen für neue <em>Möglichkeiten.</em></h2>
         <p class="contact-intro en">Available for full-time roles, collaborative research and challenging engineering projects. Open to opportunities across Germany and internationally, with deep expertise in E-Mobility, Li-ion systems, ML-based modelling and the automotive field.</p>
